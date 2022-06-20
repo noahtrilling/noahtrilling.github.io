@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { CssBaseline, ThemeOptions } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+export const themeOptions: ThemeOptions = {
+  palette: {
+    primary: {
+      main: '#ffffff',
+    }
+  },
+};
+
+const theme = createTheme(themeOptions);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
